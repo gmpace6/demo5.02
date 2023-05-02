@@ -48,5 +48,15 @@ module.exports = {
     } else {
         res.sendStatus(400)
     }
+  },
+
+  deleteMovie: (req, res) => {
+      let {id} = req.params
+  
+      let index = movies.findIndex(movie => +movie.id === +id)
+  
+      movies.splice(index, 1)
+
+      res.status(200).send(movies)
   }
-};
+}
